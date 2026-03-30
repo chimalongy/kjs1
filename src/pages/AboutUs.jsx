@@ -2,6 +2,16 @@ import { FiCheck, FiGlobe, FiTarget, FiAward, FiArrowRight } from "react-icons/f
 import { BsBuilding } from "react-icons/bs";
 import { HashLink as Link } from "react-router-hash-link";
 
+import imgConstruction from "../assets/staffs/Director in charge of Construction  Marketing DR Iphie Texas.png";
+import imgCopper from "../assets/staffs/Director in charge of copper cathode & Copper Concentrate Mr Michael Los Angels US.png";
+import imgLogistics from "../assets/staffs/Director in charge of logistics Units Mr Sunny David.png";
+import imgProcurement from "../assets/staffs/Dr  Divia Director  procurement Manager Mary land USA.png";
+import imgHRM from "../assets/staffs/HRM Noppatsorn Sangthong.png";
+import imgMD from "../assets/staffs/MD Mrs Glory Israel.png";
+import imgCEO from "../assets/staffs/Mr Kelvin Israel Director CEO Kjswest Global Resources Enterprises.png";
+import imgCommodities from "../assets/staffs/Mr Mavin South Africa Director in charge of General Commodities.png";
+import imgOilGas from "../assets/staffs/Mr Muhamed Director Oil & Gas Unit kingdom of Bahrain.png";
+
 export default function AboutUs() {
   return (
     <main>
@@ -70,7 +80,7 @@ export default function AboutUs() {
             <div className="absolute -bottom-8 -left-8 p-8 shadow-2xl" style={{ background: "#10b981" }}>
               <BsBuilding size={40} className="text-white mb-4" />
               <div className="text-xl font-bold text-white mb-1">Global HQ</div>
-              <div className="text-xs uppercase tracking-widest text-emerald-100">West Africa</div>
+              <div className="text-xs uppercase tracking-widest text-emerald-100 mt-2 max-w-[200px] leading-relaxed">6th Avenue 63 Road, Plot 897, Festac Town, Lagos, Nigeria</div>
             </div>
           </div>
         </div>
@@ -120,20 +130,20 @@ export default function AboutUs() {
             {/* Top Level - CEO */}
             <div className="flex flex-col items-center text-center max-w-sm">
               <div className="w-40 h-40 rounded-full overflow-hidden mb-6 border-4 shadow-xl" style={{ borderColor: "rgba(16,185,129,0.2)" }}>
-                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&q=80" alt="CEO" className="w-full h-full object-cover" />
+                <img src={imgCEO} alt="Mr Kelvin Israel" className="w-full h-full object-cover" />
               </div>
-              <h3 className="text-2xl font-black text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>Michael O. Johnson</h3>
-              <p className="text-xs font-bold uppercase tracking-widest mt-2" style={{ color: "#10b981" }}>Chief Executive Officer</p>
+              <h3 className="text-2xl font-black text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>Mr Kelvin Israel</h3>
+              <p className="text-xs font-bold uppercase tracking-widest mt-2" style={{ color: "#10b981" }}>Director CEO</p>
               <p className="text-slate-600 text-sm mt-4 leading-relaxed">
-                Overseeing global expansions and sovereign partnerships with a over 25 years of international energy market expertise.
+                Leading Kjswest Global Resources Enterprises with extensive expertise in international energy markets and sovereign partnerships.
               </p>
             </div>
 
             {/* Hierarchy Line Connector */}
             <div className="hidden md:flex flex-col items-center w-full mt-4">
               <div className="w-px h-12" style={{ background: "rgba(16,185,129,0.3)" }} />
-              <div className="w-3/4 max-w-3xl h-px" style={{ background: "rgba(16,185,129,0.3)" }} />
-              <div className="w-3/4 max-w-3xl flex justify-between">
+              <div className="w-[85%] max-w-5xl h-px" style={{ background: "rgba(16,185,129,0.3)" }} />
+              <div className="w-[85%] max-w-5xl flex justify-between">
                 {[...Array(4)].map((_, i) => (
                   <div key={i} className="w-px h-12" style={{ background: "rgba(16,185,129,0.3)" }} />
                 ))}
@@ -141,12 +151,16 @@ export default function AboutUs() {
             </div>
             
             {/* Second Tier */}
-            <div className="w-full max-w-5xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-4 mt-8 md:mt-0">
+            <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-y-16 mt-8 md:mt-0">
               {[
-                { name: "Sarah Jenkins", role: "Chief Operating Officer", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80" },
-                { name: "David Alaba", role: "Chief Financial Officer", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80" },
-                { name: "Elena Rostova", role: "VP of Energy Trading", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80" },
-                { name: "Kwame Mensah", role: "Head of Engineering", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80" }
+                { name: "Mrs Glory Israel", role: "Managing Director", img: imgMD },
+                { name: "Noppatsorn Sangthong", role: "Human Resource Manager", img: imgHRM },
+                { name: "Dr Divia", role: "Director, Procurement (USA)", img: imgProcurement },
+                { name: "Dr Iphie", role: "Director, Construction Marketing (Texas)", img: imgConstruction },
+                { name: "Mr Michael", role: "Director, Copper Cathode & Concentrate (LA, USA)", img: imgCopper },
+                { name: "Mr Sunny David", role: "Director, Logistics Units", img: imgLogistics },
+                { name: "Mr Mavin", role: "Director, General Commodities (South Africa)", img: imgCommodities },
+                { name: "Mr Muhamed", role: "Director, Oil & Gas Unit (Bahrain)", img: imgOilGas },
               ].map(exec => (
                 <div key={exec.name} className="flex flex-col items-center text-center group">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-5 border-4 transition-all group-hover:border-emerald-500 shadow-md" style={{ borderColor: "rgba(16,185,129,0.1)" }}>

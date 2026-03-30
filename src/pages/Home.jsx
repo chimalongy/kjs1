@@ -1,6 +1,12 @@
 import { HashLink as Link } from 'react-router-hash-link';
 import { useState, useEffect, useRef } from "react";
 import logoUrl from '../assets/logo.png';
+import imgOilGasDesktop from "../assets/heroimages/oil-and-gas-desktop.png";
+import imgOilGasMobile from "../assets/heroimages/oil-and-gas-mobile.png";
+import imgEnergyTradingDesktop from "../assets/heroimages/energy-trading-desktop.png";
+import imgEnergyTradingMobile from "../assets/heroimages/energy-trading-mobile.jpeg";
+import imgEngineeringDesktop from "../assets/heroimages/engineering-built-destop.png";
+import imgEngineeringMobile from "../assets/heroimages/engineering-built-mobile.png";
 import {
   FiMenu, FiX, FiMail, FiMapPin, FiPhone, FiChevronRight,
   FiArrowRight, FiCheck, FiGlobe, FiShield, FiAward,
@@ -118,28 +124,28 @@ function Hero() {
       title: "OIL &",
       titleSpan: " GAS.",
       text: "Global sourcing, trading, and supply of crude oil and natural gas across West Africa, Europe, and the Gulf.",
-      img: "https://images.unsplash.com/photo-1565118531796-763e5082d113?w=1600&q=80"
+      img: { desktop: imgOilGasDesktop, mobile: imgOilGasMobile }
     },
     {
       eyebrow: "Distribution Hubs",
       title: "ENERGY",
       titleSpan: " TRADING.",
       text: "Refined petroleum product distribution and bulk supply trading across established grids.",
-      img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1600&q=80"
+      img: { desktop: imgEnergyTradingDesktop, mobile: imgEnergyTradingMobile }
     },
     {
       eyebrow: "Infrastructure Development",
       title: "ENGINEERING",
       titleSpan: " BUILT.",
       text: "End-to-end EPC services, pipeline installation, and high-capacity terminal construction.",
-      img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1600&q=80"
+      img: { desktop: imgEngineeringDesktop, mobile: imgEngineeringMobile }
     },
     {
       eyebrow: "Multi-Sector Execution",
       title: "GENERAL",
       titleSpan: " CONTRACTORS.",
       text: "Comprehensive contract execution across industrial, civil, and infrastructure projects with rigorous standards.",
-      img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80"
+      img: { desktop: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80", mobile: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80" }
     }
   ];
 
@@ -160,11 +166,14 @@ function Hero() {
           key={idx}
           className={`absolute inset-0 transition-opacity duration-1000 ${currentSlide === idx ? "opacity-100" : "opacity-0"}`}
         >
-          <img
-            src={s.img}
-            alt={s.title}
-            className="w-full h-full object-cover opacity-50"
-          />
+          <picture>
+            <source media="(min-width: 768px)" srcSet={s.img.desktop} />
+            <img
+              src={s.img.mobile}
+              alt={s.title}
+              className="w-full h-full object-cover opacity-50"
+            />
+          </picture>
         </div>
       ))}
 
@@ -868,31 +877,37 @@ function Testimonials() {
 // ─── CTA ──────────────────────────────────────────────────────────────────────
 function CTA() {
   return (
-    <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #1a3a5c 0%, #ffffff 100%)" }}>
-      <div className="absolute inset-0 opacity-10" style={{
-        backgroundImage: "linear-gradient(rgba(16,185,129,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.4) 1px, transparent 1px)",
-        backgroundSize: "80px 80px"
-      }} />
+    <section className="py-24 relative overflow-hidden" style={{ background: "#0f172a" }}>
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1542314831-c6a4d14eff50?w=1600&q=80"
+          alt="Energy Infrastructure"
+          className="w-full h-full object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-slate-900/40" />
+      </div>
+
       <div className="relative max-w-4xl mx-auto px-6 text-center">
         <div className="flex items-center justify-center gap-4 mb-6">
           <div className="h-px w-10" style={{ background: "#10b981" }} />
           <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#10b981" }}>Get In Touch</span>
           <div className="h-px w-10" style={{ background: "#10b981" }} />
         </div>
-        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-6 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
+        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 leading-tight" style={{ fontFamily: "'Georgia', serif" }}>
           Looking for a Reliable<br /><span style={{ color: "#10b981" }}>Energy Supply Partner?</span>
         </h2>
-        <p className="text-slate-700 text-lg mb-12 max-w-xl mx-auto">
+        <p className="text-slate-300 text-lg mb-12 max-w-xl mx-auto">
           Connect with our trading and supply team to discuss contracts, offtake agreements, or infrastructure requirements.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4">
           <Link smooth to="/#contact"
-            className="inline-flex items-center gap-3 px-10 py-4 font-bold text-sm uppercase tracking-widest"
+            className="inline-flex items-center gap-3 px-10 py-4 font-bold text-sm uppercase tracking-widest transition-transform hover:-translate-y-1"
             style={{ background: "linear-gradient(135deg,#10b981,#34d399)", color: "#ffffff" }}>
             Request Quote <FiArrowRight />
           </Link>
           <Link smooth to="/#contact"
-            className="inline-flex items-center gap-3 px-10 py-4 font-bold text-sm uppercase tracking-widest border text-slate-900"
+            className="inline-flex items-center gap-3 px-10 py-4 font-bold text-sm uppercase tracking-widest border text-white transition-colors hover:bg-emerald-500 hover:border-emerald-500 hover:text-white"
             style={{ borderColor: "rgba(16,185,129,0.5)" }}>
             Schedule Meeting <FiArrowRight />
           </Link>
@@ -920,7 +935,7 @@ function Contact() {
           <div className="space-y-6">
             {[
               { icon: <FiMail size={18} />, label: "Email", val: "info@kjswestglobal.com" },
-              { icon: <FiMapPin size={18} />, label: "Headquarters", val: "West Africa Regional Office" },
+              { icon: <FiMapPin size={18} />, label: "Headquarters", val: "6th Avenue 63 Road, Plot 897, Festac Town, Lagos, Nigeria." },
               { icon: <FiGlobe size={18} />, label: "International Offices", val: "London · Dubai · Singapore" },
             ].map(c => (
               <div key={c.label} className="flex items-start gap-4">
@@ -1037,7 +1052,7 @@ function Footer() {
           <div className="text-xs font-bold uppercase tracking-widest mb-6" style={{ color: "#10b981" }}>Offices</div>
           <ul className="space-y-3 text-slate-300 text-xs">
             <li className="flex items-center gap-2"><FiMail size={12} /> info@kjswestglobal.com</li>
-            <li>West Africa — HQ</li>
+            <li>6th Avenue 63 Road, Plot 897, Festac Town, Lagos, Nigeria.</li>
             <li>London, United Kingdom</li>
             <li>Dubai, UAE</li>
             <li>Singapore</li>
