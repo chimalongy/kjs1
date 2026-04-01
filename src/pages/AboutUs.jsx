@@ -11,6 +11,67 @@ import imgMD from "../assets/staffs/MD Mrs Glory Israel.png";
 import imgCEO from "../assets/staffs/Mr Kelvin Israel Director CEO Kjswest Global Resources Enterprises.png";
 import imgCommodities from "../assets/staffs/Mr Mavin South Africa Director in charge of General Commodities.png";
 import imgOilGas from "../assets/staffs/Mr Muhamed Director Oil & Gas Unit kingdom of Bahrain.png";
+import imgLegal from "../assets/staffs/Barrister Kingsley Managing Director Legal.png";
+
+function getFlagUrl(iso2) {
+  if (!iso2 || typeof iso2 !== "string") return null;
+  const code = iso2.trim().toLowerCase();
+  if (!/^[a-z]{2}$/.test(code)) return null;
+  return `https://flagcdn.com/w40/${code}.png`;
+}
+
+function normalizeCountryLabel(s) {
+  return (s ?? "")
+    .toString()
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function roleToCountryLabel(role) {
+  if (!role) return null;
+  const m = role.match(/\(([^)]+)\)\s*$/);
+  if (!m) return null;
+  return m[1]?.trim() || null;
+}
+
+function countryLabelToIso2(countryLabel) {
+  const k = normalizeCountryLabel(countryLabel);
+  if (!k) return null;
+
+  const map = {
+    "usa": "US",
+    "us": "US",
+    "united states": "US",
+    "u.s.a": "US",
+    "u.s.": "US",
+    "texas": "US",
+    "mary land": "US",
+    "maryland": "US",
+    "la": "US",
+    "los angels": "US",
+    "los angeles": "US",
+    "south africa": "ZA",
+    "bahrain": "BH",
+    "uae": "AE",
+    "united arab emirates": "AE",
+    "uk": "GB",
+    "united kingdom": "GB",
+    "nigeria": "NG",
+    "ghana": "GH",
+    "singapore": "SG",
+    "thailand": "TH",
+  };
+
+  if (map[k]) return map[k];
+
+  // Partial matches: check if the label contains any of our mapped keys
+  for (const key of Object.keys(map)) {
+    if (k.includes(key)) return map[key];
+  }
+
+  return null;
+}
 
 export default function AboutUs() {
   return (
@@ -128,12 +189,34 @@ export default function AboutUs() {
 
           <div className="flex flex-col items-center gap-4 md:gap-0">
             {/* Top Level - CEO */}
-            <div className="flex flex-col items-center text-center max-w-sm">
-              <div className="w-40 h-40 rounded-full overflow-hidden mb-6 border-4 shadow-xl" style={{ borderColor: "rgba(16,185,129,0.2)" }}>
+            <div className="flex flex-col items-center text-center max-w-sm group">
+              <div className="w-40 h-40 rounded-full overflow-hidden mb-6 border-4 shadow-xl group-hover:border-emerald-500 transition-all" style={{ borderColor: "rgba(16,185,129,0.2)" }}>
                 <img src={imgCEO} alt="Mr Kelvin Israel" className="w-full h-full object-cover" />
               </div>
               <h3 className="text-2xl font-black text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>Mr Kelvin Israel</h3>
-              <p className="text-xs font-bold uppercase tracking-widest mt-2" style={{ color: "#10b981" }}>Director CEO</p>
+              {(() => {
+                const role = "Director CEO (Nigeria)";
+                const countryLabel = roleToCountryLabel(role);
+                const iso2 = countryLabelToIso2(countryLabel);
+                const flagUrl = getFlagUrl(iso2);
+                return (
+                  <p className="text-xs font-bold uppercase tracking-widest mt-2" style={{ color: "#10b981" }}>
+                    {flagUrl ? (
+                      <span className="inline-flex items-center gap-2">
+                        <img 
+                          src={flagUrl} 
+                          alt={countryLabel || "Location flag"} 
+                          className="h-3.5 w-auto rounded-sm shadow-xs" 
+                          style={{ objectFit: 'contain' }}
+                        />
+                        <span>{role}</span>
+                      </span>
+                    ) : (
+                      role
+                    )}
+                  </p>
+                );
+              })()}
               <p className="text-slate-600 text-sm mt-4 leading-relaxed">
                 Leading Kjswest Global Resources Enterprises with extensive expertise in international energy markets and sovereign partnerships.
               </p>
@@ -144,7 +227,7 @@ export default function AboutUs() {
               <div className="w-px h-12" style={{ background: "rgba(16,185,129,0.3)" }} />
               <div className="w-[85%] max-w-5xl h-px" style={{ background: "rgba(16,185,129,0.3)" }} />
               <div className="w-[85%] max-w-5xl flex justify-between">
-                {[...Array(4)].map((_, i) => (
+                {[...Array(5)].map((_, i) => (
                   <div key={i} className="w-px h-12" style={{ background: "rgba(16,185,129,0.3)" }} />
                 ))}
               </div>
@@ -153,21 +236,43 @@ export default function AboutUs() {
             {/* Second Tier */}
             <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 md:gap-y-16 mt-8 md:mt-0">
               {[
-                { name: "Mrs Glory Israel", role: "Managing Director", img: imgMD },
-                { name: "Noppatsorn Sangthong", role: "Human Resource Manager", img: imgHRM },
+                { name: "Mrs Glory Israel", role: "Managing Director (Nigeria)", img: imgMD },
+                { name: "Noppatsorn Sangthong", role: "Human Resource Manager (Thailand)", img: imgHRM },
                 { name: "Dr Divia", role: "Director, Procurement (USA)", img: imgProcurement },
                 { name: "Dr Iphie", role: "Director, Construction Marketing (Texas)", img: imgConstruction },
                 { name: "Mr Michael", role: "Director, Copper Cathode & Concentrate (LA, USA)", img: imgCopper },
-                { name: "Mr Sunny David", role: "Director, Logistics Units", img: imgLogistics },
+                { name: "Mr Sunny David", role: "Director, Logistics Units (Nigeria)", img: imgLogistics },
                 { name: "Mr Mavin", role: "Director, General Commodities (South Africa)", img: imgCommodities },
                 { name: "Mr Muhamed", role: "Director, Oil & Gas Unit (Bahrain)", img: imgOilGas },
+                { name: "Barrister Kingsley", role: "Managing Director, Legal (Nigeria)", img: imgLegal },
               ].map(exec => (
                 <div key={exec.name} className="flex flex-col items-center text-center group">
                   <div className="w-32 h-32 rounded-full overflow-hidden mb-5 border-4 transition-all group-hover:border-emerald-500 shadow-md" style={{ borderColor: "rgba(16,185,129,0.1)" }}>
                     <img src={exec.img} alt={exec.name} className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" />
                   </div>
                   <h4 className="text-lg font-bold text-slate-900">{exec.name}</h4>
-                  <p className="text-xs uppercase tracking-widest mt-1 text-slate-500 group-hover:text-emerald-600 transition-colors">{exec.role}</p>
+                  {(() => {
+                    const countryLabel = roleToCountryLabel(exec.role);
+                    const iso2 = countryLabelToIso2(countryLabel);
+                    const flagUrl = getFlagUrl(iso2);
+                    return (
+                      <p className="text-xs uppercase tracking-widest mt-1 text-slate-500 group-hover:text-emerald-600 transition-colors">
+                        {flagUrl ? (
+                          <span className="inline-flex items-center gap-2">
+                            <img 
+                              src={flagUrl} 
+                              alt={countryLabel || "Location flag"} 
+                              className="h-3 w-auto rounded-sm shadow-xs" 
+                              style={{ objectFit: 'contain' }}
+                            />
+                            <span>{exec.role}</span>
+                          </span>
+                        ) : (
+                          exec.role
+                        )}
+                      </p>
+                    );
+                  })()}
                 </div>
               ))}
             </div>

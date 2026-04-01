@@ -24,6 +24,18 @@ import { BsBuilding, BsBarChartFill, BsFuelPumpFill } from "react-icons/bs";
 import { RiShipLine, RiGovernmentLine, RiBarChart2Fill } from "react-icons/ri";
 import { HiOutlineOfficeBuilding } from "react-icons/hi";
 
+// ─── PROJECT IMAGES ─────────────────────────────────────────────────────────
+import imgProjBuildingConstruction from "../assets/projects/Building Construction.jpeg";
+import imgProjBuildingConstruction2 from "../assets/projects/Building Construction2.jpeg";
+import imgProjCopperCathode from "../assets/projects/Copper Cathode.png";
+import imgProjRawGold from "../assets/projects/RawGold.png";
+import imgProjRefinedGold from "../assets/projects/Refined Gold.jpeg";
+import imgProjRiceSupply from "../assets/projects/Rice Supply.png";
+import imgProjSolarSupply from "../assets/projects/Solar Supply.jpeg";
+import imgProjWhatsApp from "../assets/projects/WhatsApp Image 2026-03-31 at 2.39.27 AM.jpeg";
+import imgProjCopperConc1 from "../assets/projects/copper Concentrates 1.jpeg";
+import imgProjCopperConc2 from "../assets/projects/copper Concentrates 2.jpeg";
+
 // ─── THEME COLORS ───────────────────────────────────────────────────────────
 // Light: #ffffff  Green: #10b981  Light Green: #34d399  Accent: #1a3a5c
 
@@ -675,40 +687,64 @@ function Industries() {
 function Projects() {
   const projects = [
     {
-      img: "https://images.unsplash.com/photo-1578328819058-b69f3a3b0f6b?w=600&q=80",
-      title: "Crude Oil Supply Delivery",
-      location: "West Africa", type: "Upstream Oil & Gas", status: "Completed",
-      result: "Delivered 2M barrels of crude to sovereign refineries within contractual timelines."
+      img: imgProjBuildingConstruction,
+      title: "Civil Infrastructure Construction",
+      location: "West Africa", type: "General Contracting", status: "Completed",
+      result: "Delivered large-scale civil construction project on schedule, meeting all HSE requirements."
     },
     {
-      img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=600&q=80",
-      title: "Petroleum Trading Operations",
-      location: "Europe", type: "Energy Trading", status: "Ongoing",
-      result: "Active petroleum supply management across 6 European distribution hubs."
+      img: imgProjBuildingConstruction2,
+      title: "Commercial Building Development",
+      location: "Nigeria", type: "General Contracting", status: "Completed",
+      result: "Multi-storey commercial facility built from groundwork to commissioning."
     },
     {
-      img: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80",
-      title: "Pipeline Development",
-      location: "Middle East", type: "EPC / Infrastructure", status: "Completed",
-      result: "120km high-pressure pipeline commissioned on schedule in arid terrain."
+      img: imgProjCopperCathode,
+      title: "Copper Cathode Trading",
+      location: "International", type: "Commodities", status: "Ongoing",
+      result: "Active supply and export of high-grade copper cathodes to international buyers."
     },
     {
-      img: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&q=80",
-      title: "General Contract Execution",
-      location: "Multi-Sector", type: "General Contracting", status: "Completed",
-      result: "Industrial and civil contract portfolio executed across 4 countries."
+      img: imgProjRawGold,
+      title: "Raw Gold Commodity Supply",
+      location: "West Africa", type: "Commodities", status: "Ongoing",
+      result: "Sourcing and export of raw gold in compliance with international trade regulations."
     },
     {
-      img: "https://images.unsplash.com/photo-1565118531796-763e5082d113?w=600&q=80",
-      title: "Offshore Offtake Agreement",
-      location: "Gulf of Guinea", type: "Offtake & Supply", status: "Ongoing",
-      result: "Long-term crude offtake agreement with national oil company, 5-year term."
+      img: imgProjRefinedGold,
+      title: "Refined Gold Trading",
+      location: "International", type: "Commodities", status: "Completed",
+      result: "Facilitated refined gold trading contracts across multiple international markets."
     },
     {
-      img: "https://images.unsplash.com/photo-1611560291919-2a0d70940d9f?w=600&q=80",
-      title: "Petroleum Terminal Construction",
-      location: "West Africa", type: "Infrastructure", status: "Completed",
-      result: "50,000 MT storage terminal built and operational, serving downstream distribution."
+      img: imgProjRiceSupply,
+      title: "Agricultural Commodity Supply",
+      location: "West Africa", type: "General Commodities", status: "Ongoing",
+      result: "Large-volume rice supply contracts supporting regional food distribution networks."
+    },
+    {
+      img: imgProjSolarSupply,
+      title: "Solar Energy Infrastructure",
+      location: "Africa", type: "Energy", status: "Completed",
+      result: "Delivered and commissioned solar energy supply infrastructure for off-grid communities."
+    },
+    {
+      img: imgProjWhatsApp,
+      title: "Strategic Energy Project",
+      location: "West Africa", type: "Upstream Oil & Gas", status: "Ongoing",
+      result: "Active upstream energy project delivering operational output to national supply chains."
+    },
+    {
+      img: imgProjCopperConc1,
+      title: "Copper Concentrate Supply – Phase I",
+      location: "International", type: "Commodities", status: "Completed",
+      result: "Executed Phase I copper concentrate supply agreement with international smelters."
+    },
+    {
+      img: imgProjCopperConc2,
+      title: "Copper Concentrate Supply – Phase II",
+      location: "International", type: "Commodities", status: "Ongoing",
+      result: "Phase II expansion of copper concentrate trading operations with extended offtake terms."
     },
   ];
 
