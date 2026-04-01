@@ -973,7 +973,7 @@ function Contact() {
             {[
               { icon: <FiMail size={18} />, label: "Email", val: "info@kjswestglobal.com" },
               { icon: <FiMapPin size={18} />, label: "Headquarters", val: "6th Avenue 63 Road, Plot 897, Festac Town, Lagos, Nigeria." },
-              { icon: <FiGlobe size={18} />, label: "International Offices", val: "London · Dubai · Singapore · Thailand · Cannada · United States" },
+              { icon: <FiGlobe size={18} />, label: "International Offices", val: "London · Dubai · Singapore · Thailand · Cannada · United Stateada 
             ].map(c => (
               <div key={c.label} className="flex items-start gap-4">
                 <div className="w-10 h-10 flex items-center justify-center shrink-0 mt-0.5"
