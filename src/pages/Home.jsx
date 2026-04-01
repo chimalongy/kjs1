@@ -183,16 +183,16 @@ function Hero() {
             <img
               src={s.img.mobile}
               alt={s.title}
-              className="w-full h-full object-cover opacity-50"
+              className="w-full h-full object-cover opacity-60"
             />
           </picture>
         </div>
       ))}
 
-      {/* Light Overlay */}
+      {/* Adjusted Overlay for better image visibility */}
       <div className="absolute inset-0" style={{
-        background: "linear-gradient(135deg, rgba(248, 250, 252, 0.85) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(248, 250, 252, 0.8) 100%)",
-        backdropFilter: "blur(1px)",
+        background: "linear-gradient(135deg, rgba(248, 250, 252, 0.4) 0%, rgba(255, 255, 255, 0.15) 50%, rgba(248, 250, 252, 0.3) 100%)",
+        backdropFilter: "blur(0px)",
         pointerEvents: "none"
       }} />
 
@@ -218,18 +218,18 @@ function Hero() {
               {/* Eyebrow */}
               <div className="flex items-center gap-3 mb-8">
                 <div className="h-px w-12" style={{ background: "#10b981" }} />
-                <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#10b981" }}>
+                <span className="text-xs font-bold tracking-widest uppercase bg-green-100 rounded-2xl p-2" style={{ color: "#10b981" }}>
                   {s.eyebrow}
                 </span>
               </div>
 
               <h1 className=" text-4xl md:text-8xl font-black text-slate-900 leading-none mb-6"
-                style={{ fontFamily: "'Georgia', serif", letterSpacing: "-0.02em" }}>
+                style={{ fontFamily: "'Georgia', serif", letterSpacing: "-0.02em", textShadow: "0 1px 2px rgba(255,255,255,0.8)" }}>
                 {s.title}<br />
                 <span style={{ color: "#10b981" }}>{s.titleSpan}</span>
               </h1>
 
-              <p className="text-slate-700 text-lg md:text-xl leading-relaxed max-w-2xl mb-12">
+              <p className="text-slate-900  text-xl md:text-2xl leading-relaxed max-w-2xl mb-12">
                 {s.text}
               </p>
 
@@ -254,13 +254,13 @@ function Hero() {
         <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
             { val: "20+", label: "Years of Operations" },
-            { val: "18", label: "Countries Active" },
+            { val: "20", label: "Countries Active" },
             { val: "$3.5B", label: "Energy Traded" },
             { val: "5,000+", label: "Workforce Deployed" },
           ].map(m => (
             <div key={m.label} className="border-l-2 pl-4" style={{ borderColor: "#10b981" }}>
-              <div className="text-3xl font-black text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{m.val}</div>
-              <div className="text-xs uppercase tracking-widest text-slate-600 mt-1">{m.label}</div>
+              <div className="text-3xl font-black text-slate-950" style={{ fontFamily: "'Georgia', serif" }}>{m.val}</div>
+              <div className="text-xs uppercase tracking-widest text-green-400 bg-green-50  p-2 bold mt-1">{m.label}</div>
             </div>
           ))}
         </div>
@@ -334,7 +334,7 @@ function Services() {
               style={{ background: "#ffffff" }}>
               <div className="flex items-start justify-between">
                 <div style={{ color: "#10b981" }}>{c.icon}</div>
-                <span className="text-4xl font-black opacity-10 text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{c.num}</span>
+                <span className="text-4xl font-black opacity-60 text-slate-900" style={{ fontFamily: "'Georgia', serif" }}>{c.num}</span>
               </div>
               <div>
                 <div className="text-xs font-bold tracking-widest uppercase mb-1" style={{ color: "#10b981" }}>{c.cat}</div>
@@ -472,6 +472,7 @@ function Markets() {
     { label: "West Africa", icon: <GiWorld size={24} />, items: ["Nigeria", "Ghana", "Senegal", "Côte d'Ivoire", "Cameroon"] },
     { label: "Europe", icon: <FiGlobe size={24} />, items: ["United Kingdom", "Netherlands", "France", "Spain", "Italy"] },
     { label: "Africa & Middle East", icon: <GiCargoShip size={24} />, items: ["UAE", "Saudi Arabia", "Egypt", "Angola", "Mozambique"] },
+    { label: "North America", icon: <FiGlobe size={24} />, items: ["United States", "Canada"] },
   ];
 
   return (
@@ -490,7 +491,7 @@ function Markets() {
             Markets &amp;<br />Regions Covered
           </h2>
           <p className="text-slate-600 max-w-md text-sm leading-relaxed mt-4 md:mt-0">
-            Operating across sovereign partnerships, international trading routes, and maritime logistics corridors spanning 18 active countries.
+            Operating across sovereign partnerships, international trading routes, and maritime logistics corridors spanning 20 active countries.
           </p>
         </div>
 
@@ -500,7 +501,7 @@ function Markets() {
             alt="World map" className="w-full h-full object-cover opacity-20" />
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center">
-              <div className="text-6xl font-black text-slate-900 opacity-20" style={{ fontFamily: "'Georgia', serif" }}>18 NATIONS</div>
+              <div className="text-6xl font-black text-slate-900 opacity-20" style={{ fontFamily: "'Georgia', serif" }}>20 NATIONS</div>
               <div className="text-emerald-600 tracking-widest text-sm uppercase mt-2">Active Operations Worldwide</div>
             </div>
           </div>

@@ -81,9 +81,9 @@ export default function AboutUs() {
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600&q=80"
-            alt="Corporate structure" className="w-full h-full object-cover opacity-15" />
+            alt="Corporate structure" className="w-full h-full object-cover opacity-70" />
           <div className="absolute inset-0" style={{
-            background: "linear-gradient(135deg, rgba(248,250,252,0.96) 0%, rgba(255,255,255,0.85) 50%, rgba(226,232,240,0.7) 100%)"
+            background: "linear-gradient(135deg, rgba(248,250,252,0.4) 0%, rgba(255,255,255,0.2) 50%, rgba(226,232,240,0.3) 100%)"
           }} />
         </div>
         <div className="relative max-w-7xl mx-auto px-6 w-full z-10 text-center">
@@ -92,7 +92,7 @@ export default function AboutUs() {
             <span className="text-xs font-bold tracking-widest uppercase" style={{ color: "#10b981" }}>About Our Company</span>
             <div className="h-px w-10" style={{ background: "#10b981" }} />
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-6" style={{ fontFamily: "'Georgia', serif" }}>
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 mb-6" style={{ fontFamily: "'Georgia', serif", textShadow: "0 1px 2px rgba(255,255,255,0.8)" }}>
             Energy. <span style={{ color: "#10b981" }}>Contracts.</span> Delivered.
           </h1>
           <p className="text-slate-600 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
@@ -113,7 +113,7 @@ export default function AboutUs() {
                 Founded over 20 years ago, KJS West Global Resources Enterprises began with a singular vision: to bridge the gap between complex energy requirements and reliable, scalable execution in West Africa. 
               </p>
               <p>
-                Today, we have expanded into an international powerhouse spanning <strong>18 countries</strong> across Africa, Europe, and the Middle East. Through long-term sovereign partnerships, state-of-the-art engineering practices, and an unwavering commitment to HSE guidelines, we deliver projects and energy supplies that power modern economies.
+                Today, we have expanded into an international powerhouse spanning <strong>20 countries</strong> across Africa, Europe, and the Middle East. Through long-term sovereign partnerships, state-of-the-art engineering practices, and an unwavering commitment to HSE guidelines, we deliver projects and energy supplies that power modern economies.
               </p>
               <p>
                 From executing massive upstream crude oil offtake agreements to building end-to-end petroleum pipelines in challenging terrains, our four core divisions work in absolute synergy.
@@ -123,7 +123,7 @@ export default function AboutUs() {
             <div className="mt-10 grid grid-cols-2 gap-6">
               {[
                 { val: "20+", desc: "Years Active" },
-                { val: "18", desc: "Nations" },
+                { val: "20", desc: "Nations" },
                 { val: "4", desc: "Core Divisions" },
                 { val: "100%", desc: "HSE Compliant" },
               ].map(stat => (
